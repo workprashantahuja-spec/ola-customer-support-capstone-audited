@@ -2,7 +2,7 @@
 
 Current checkpoint, 13 September: read FINAL-AUDIT.md. GitHub publication is complete. Historical schedule, next-step and test-count claims below are superseded by that audit; final LMS submission and Windows setup remain unverified.
 
-Current handoff supersedes the older Next execution paragraph below: Portions 10A–10C are complete. Read README.md, BUSINESS-WALKTHROUGH.md, AUDIT10A.md, and GITHUB-PUBLISHING.md. The remaining work is public GitHub publication and LMS submission.
+Current handoff supersedes the older Next execution paragraph below: Portions 10A–10C are complete. Read README.md, BUSINESS-WALKTHROUGH.md, AUDIT10A.md, and GITHUB-PUBLISHING.md. The remaining work is the final LMS submission.
 
 Prepared 9 September 2026. Submission: Sunday 13 September, 11:59 PM according to the course orientation; confirm the portal timezone at submission. Working-version target: Friday 11 September. This is a target, not a guarantee.
 
