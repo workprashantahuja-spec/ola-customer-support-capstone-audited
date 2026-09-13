@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.py[cod]
+models/
+storage/chroma/
+.env
+transcripts/request_log.jsonl

@@ -1,0 +1,17 @@
+# Install CPU PyTorch first; see TASK3-SEARCH.md for Windows commands.
+torch==2.14.0
+sentence-transformers==6.0.1
+chromadb==1.5.9
+transformers==5.16.1
+huggingface-hub==1.30.0
+# CrewAI 0.114.0 pins LiteLLM 1.60.2, which requires HTTPX below 0.28.
+# The socks extra also supports the build environment's HTTPS proxy.
+httpx[socks]==0.27.2
+crewai==0.114.0
+pydantic==2.13.5
+langchain-core==1.0.7
+autogen-agentchat==0.7.5
+autogen-core==0.7.5
+fastapi==0.141.1
+uvicorn==0.52.4
+websockets==17.1
