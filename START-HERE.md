@@ -2,7 +2,7 @@
 
 Current checkpoint, 13 September: read FINAL-AUDIT.md and README.md. The public repository exists. The audit supersedes historical completion, next-step and test-count claims below. Final LMS submission and Windows setup remain unverified.
 
-Start with README.md and BUSINESS-WALKTHROUGH.md. The audit, documentation, clean setup, local Git preparation, and business walkthrough are complete. Read AUDIT10A.md before relying on earlier perfect-score language: results apply only to the selected acceptance set. The remaining work is to create and publish the public GitHub repository, then submit its URL in LMS.
+Start with README.md and BUSINESS-WALKTHROUGH.md. The audit, documentation, clean setup, local Git preparation, and business walkthrough are complete. Read AUDIT10A.md before relying on earlier perfect-score language: results apply only to the selected acceptance set. The remaining work is the final LMS submission.
 
 Confirmed track: **Ola — Business Operations / Customer Support**, selected by Prashant on 6 September 2026. Use the matching Ola domain in LMS Question 1 and the submitted repository.
 
@@ -14,7 +14,7 @@ A support agent that answers policy questions using our written knowledge base, 
 
 The supplied brief requires one public GitHub repository containing code, data, knowledge-base text, a README, and real execution transcripts. It says images, PDFs, slide decks, video, and audio are not accepted deliverables. Graded runs must work with a deterministic `MOCK_LLM`, with no API keys or runtime network access. Local SentenceTransformers embeddings and ChromaDB are required. Download/install dependencies and the embedding model during setup, before offline graded runs.
 
-Source: the user-supplied **Pasted text(20260829-212814).txt**, titled *Final Capstone — Ola Domain Support Agent (CrewAI)*, uploaded 29 August 2026. The user previously reported that later classes/Q&A allow AI assistance and require understanding the submitted system. The completed local build follows that clarification; public publication and final submission remain.
+Source: the user-supplied **Pasted text(20260829-212814).txt**, titled *Final Capstone — Ola Domain Support Agent (CrewAI)*, uploaded 29 August 2026. The completed build follows the current submission instructions; public publication is complete, while final LMS submission and Windows setup remain unverified.
 
 ## First task delivered: the dataset
 
