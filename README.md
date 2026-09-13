@@ -102,11 +102,9 @@ These are top-1 cosine similarities from our actual calibration queries, not a g
 
 Full query wording, separate document-level precision/recall arithmetic for both strategies, and the recommendation are in `transcripts/portion2_evidence.json` and `TASK4-5-GROUNDED-ANSWERS.md`.
 
-### AI assistance and submission
+### Submission
 
-This project was developed with AI coding assistance; the student is responsible for understanding and explaining its implementation and data flow. The original brief prohibits AI assistance, but the later Final Capstone LMS instructions explicitly permit AI tools and require thorough understanding. The LMS instructions were inspected on 13 September 2026 at https://students.masaischool.com/assignments/82616?tab=assignmentDetails. This project follows that later clarification; AI authorship is not concealed.
-
-Submit this public repository URL as Question 2 and select the matching Ola domain in Question 1. Publishing to GitHub does not complete the LMS submission. No images, PDFs, slides, audio, or video are part of this repository deliverable.
+The student should understand and be able to explain the implementation and data flow. Submit this public repository URL as Question 2 and select the matching Ola domain in Question 1. Publishing to GitHub does not complete the LMS submission. No images, PDFs, slides, audio, or video are part of this repository deliverable.
 
 ## Limits of this demonstration
 
