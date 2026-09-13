@@ -1,0 +1,360 @@
+{
+  "portion": 7,
+  "rubric_tasks": [
+    11,
+    12
+  ],
+  "status": "PASS",
+  "http_endpoints": {
+    "GET /health": {
+      "status": "ok"
+    },
+    "POST /ask": {
+      "trace_id": "2bf54592-5497-476a-a65e-ca861edba664",
+      "duration_ms": 80.648,
+      "reply": {
+        "status": "answered",
+        "session_id": "http-demo",
+        "sanitized_input": "Check ticket SUP-0014. Call [PHONE]. PAN [PAN], Aadhaar [AADHAAR], account number [BANK_ACCOUNT], card ends in ****.",
+        "phone_numbers_masked": 1,
+        "card_last4_masked": 1,
+        "pan_masked": 1,
+        "aadhaar_masked": 1,
+        "bank_accounts_masked": 1,
+        "memory_used": false,
+        "resolved_record_id": "SUP-0014",
+        "crew_invoked": true,
+        "response": {
+          "request_type": "ticket",
+          "answer": "Ticket SUP-0014 is In Progress. Its recorded resolution-time value is 4 hours and its attention score is 0.3150. Human attention is not currently recommended by the fabricated-data score.",
+          "grounded": true,
+          "fallback_used": false,
+          "sources": [
+            "fabricated_support_tickets"
+          ],
+          "ticket": {
+            "record_id": "SUP-0014",
+            "status": "In Progress",
+            "resolution_time_hours": 4,
+            "days_since_created": 27,
+            "escalated": false,
+            "escalation_score": 0.315,
+            "human_attention_recommended": false
+          }
+        },
+        "message": "Ticket SUP-0014 is In Progress. Its recorded resolution-time value is 4 hours and its attention score is 0.3150. Human attention is not currently recommended by the fabricated-data score.",
+        "guardrail_events": [
+          "pii_masked:phone",
+          "pii_masked:card_last4",
+          "pii_masked:pan",
+          "pii_masked:aadhaar",
+          "pii_masked:bank_account",
+          "runtime_budget:accepted",
+          "output_groundedness:pass"
+        ],
+        "runtime_budget": {
+          "accepted": true,
+          "input_tokens": 35,
+          "reserved_pipeline_tokens": 768,
+          "estimated_total_tokens": 803,
+          "max_input_tokens": 256,
+          "max_total_tokens": 1024,
+          "estimated_cost_usd": 0.000803,
+          "max_cost_usd": 0.001,
+          "reasons": []
+        }
+      },
+      "review": {
+        "approved": true,
+        "final_answer": "Ticket SUP-0014 is In Progress. Its recorded resolution-time value is 4 hours and its attention score is 0.3150. Human attention is not currently recommended by the fabricated-data score.",
+        "reason": "Draft matches the original tool evidence; no revision was needed."
+      },
+      "final_answer": "Ticket SUP-0014 is In Progress. Its recorded resolution-time value is 4 hours and its attention score is 0.3150. Human attention is not currently recommended by the fabricated-data score."
+    },
+    "POST /sessions/{session_id}/reset": {
+      "trace_id": "d1f2c282-0c0a-446f-8bb2-cb49c03b4c01",
+      "session_id": "http-demo",
+      "reset": true,
+      "duration_ms": 0.024
+    }
+  },
+  "websocket": {
+    "endpoint": "/ws/chat/{session_id}",
+    "first_response": {
+      "trace_id": "a5534338-4e4f-4c03-819b-91b107314d8e",
+      "duration_ms": 75.383,
+      "reply": {
+        "status": "answered",
+        "session_id": "websocket-demo",
+        "sanitized_input": "Please check ticket SUP-0001.",
+        "phone_numbers_masked": 0,
+        "card_last4_masked": 0,
+        "pan_masked": 0,
+        "aadhaar_masked": 0,
+        "bank_accounts_masked": 0,
+        "memory_used": false,
+        "resolved_record_id": "SUP-0001",
+        "crew_invoked": true,
+        "response": {
+          "request_type": "ticket",
+          "answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+          "grounded": true,
+          "fallback_used": false,
+          "sources": [
+            "fabricated_support_tickets"
+          ],
+          "ticket": {
+            "record_id": "SUP-0001",
+            "status": "Escalated",
+            "resolution_time_hours": 48,
+            "days_since_created": 29,
+            "escalated": true,
+            "escalation_score": 0.9883,
+            "human_attention_recommended": true
+          }
+        },
+        "message": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+        "guardrail_events": [
+          "runtime_budget:accepted",
+          "output_groundedness:pass"
+        ],
+        "runtime_budget": {
+          "accepted": true,
+          "input_tokens": 8,
+          "reserved_pipeline_tokens": 768,
+          "estimated_total_tokens": 776,
+          "max_input_tokens": 256,
+          "max_total_tokens": 1024,
+          "estimated_cost_usd": 0.000776,
+          "max_cost_usd": 0.001,
+          "reasons": []
+        }
+      },
+      "review": {
+        "approved": true,
+        "final_answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+        "reason": "Draft matches the original tool evidence; no revision was needed."
+      },
+      "final_answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended."
+    },
+    "followup_response": {
+      "trace_id": "e7061984-e311-4ad2-8818-b48da1420737",
+      "duration_ms": 34.352,
+      "reply": {
+        "status": "answered",
+        "session_id": "websocket-demo",
+        "sanitized_input": "What is its status?",
+        "phone_numbers_masked": 0,
+        "card_last4_masked": 0,
+        "pan_masked": 0,
+        "aadhaar_masked": 0,
+        "bank_accounts_masked": 0,
+        "memory_used": true,
+        "resolved_record_id": "SUP-0001",
+        "crew_invoked": true,
+        "response": {
+          "request_type": "ticket",
+          "answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+          "grounded": true,
+          "fallback_used": false,
+          "sources": [
+            "fabricated_support_tickets"
+          ],
+          "ticket": {
+            "record_id": "SUP-0001",
+            "status": "Escalated",
+            "resolution_time_hours": 48,
+            "days_since_created": 29,
+            "escalated": true,
+            "escalation_score": 0.9883,
+            "human_attention_recommended": true
+          }
+        },
+        "message": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+        "guardrail_events": [
+          "runtime_budget:accepted",
+          "output_groundedness:pass"
+        ],
+        "runtime_budget": {
+          "accepted": true,
+          "input_tokens": 5,
+          "reserved_pipeline_tokens": 768,
+          "estimated_total_tokens": 773,
+          "max_input_tokens": 256,
+          "max_total_tokens": 1024,
+          "estimated_cost_usd": 0.000773,
+          "max_cost_usd": 0.001,
+          "reasons": []
+        }
+      },
+      "review": {
+        "approved": true,
+        "final_answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+        "reason": "Draft matches the original tool evidence; no revision was needed."
+      },
+      "final_answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended."
+    },
+    "disconnect_handled_server_still_available": true
+  },
+  "jsonl_log": {
+    "path": "transcripts/portion7_requests.jsonl",
+    "entries": [
+      {
+        "autogen_reviewed": false,
+        "crew_invoked": false,
+        "duration_ms": 1.621,
+        "endpoint": "/health",
+        "masked_request_text": "",
+        "outcome": "ok",
+        "pii_mask_counts": {
+          "aadhaar": 0,
+          "bank_account": 0,
+          "card_last4": 0,
+          "pan": 0,
+          "phone": 0
+        },
+        "session_id": null,
+        "status_code": 200,
+        "timestamp_utc": "2026-09-13T13:02:22.021936+00:00",
+        "trace_id": "7a0e8c95-9836-4288-8189-d0dc652ae27f",
+        "transport": "http"
+      },
+      {
+        "autogen_reviewed": true,
+        "cache_hit": false,
+        "crew_invoked": true,
+        "duration_ms": 82.003,
+        "endpoint": "/ask",
+        "masked_request_text": "Check ticket SUP-0014. Call [PHONE]. PAN [PAN], Aadhaar [AADHAAR], account number [BANK_ACCOUNT], card ends in ****.",
+        "outcome": "answered",
+        "pii_mask_counts": {
+          "aadhaar": 1,
+          "bank_account": 1,
+          "card_last4": 1,
+          "pan": 1,
+          "phone": 1
+        },
+        "runtime_budget": {
+          "accepted": true,
+          "estimated_cost_usd": 0.000803,
+          "estimated_total_tokens": 803,
+          "input_tokens": 35,
+          "max_cost_usd": 0.001,
+          "max_input_tokens": 256,
+          "max_total_tokens": 1024,
+          "reasons": [],
+          "reserved_pipeline_tokens": 768
+        },
+        "session_id": "http-demo",
+        "status_code": 200,
+        "timestamp_utc": "2026-09-13T13:02:22.108041+00:00",
+        "trace_id": "2bf54592-5497-476a-a65e-ca861edba664",
+        "transport": "http"
+      },
+      {
+        "autogen_reviewed": false,
+        "crew_invoked": false,
+        "duration_ms": 0.81,
+        "endpoint": "/sessions/{session_id}/reset",
+        "masked_request_text": "",
+        "outcome": "reset",
+        "pii_mask_counts": {
+          "aadhaar": 0,
+          "bank_account": 0,
+          "card_last4": 0,
+          "pan": 0,
+          "phone": 0
+        },
+        "session_id": "http-demo",
+        "status_code": 200,
+        "timestamp_utc": "2026-09-13T13:02:22.113975+00:00",
+        "trace_id": "d1f2c282-0c0a-446f-8bb2-cb49c03b4c01",
+        "transport": "http"
+      },
+      {
+        "autogen_reviewed": true,
+        "cache_hit": false,
+        "crew_invoked": true,
+        "duration_ms": 75.383,
+        "endpoint": "/ws/chat/{session_id}",
+        "masked_request_text": "Please check ticket SUP-0001.",
+        "outcome": "answered",
+        "pii_mask_counts": {
+          "aadhaar": 0,
+          "bank_account": 0,
+          "card_last4": 0,
+          "pan": 0,
+          "phone": 0
+        },
+        "runtime_budget": {
+          "accepted": true,
+          "estimated_cost_usd": 0.000776,
+          "estimated_total_tokens": 776,
+          "input_tokens": 8,
+          "max_cost_usd": 0.001,
+          "max_input_tokens": 256,
+          "max_total_tokens": 1024,
+          "reasons": [],
+          "reserved_pipeline_tokens": 768
+        },
+        "session_id": "websocket-demo",
+        "timestamp_utc": "2026-09-13T13:02:22.193016+00:00",
+        "trace_id": "a5534338-4e4f-4c03-819b-91b107314d8e",
+        "transport": "websocket"
+      },
+      {
+        "autogen_reviewed": true,
+        "cache_hit": false,
+        "crew_invoked": true,
+        "duration_ms": 34.352,
+        "endpoint": "/ws/chat/{session_id}",
+        "masked_request_text": "What is its status?",
+        "outcome": "answered",
+        "pii_mask_counts": {
+          "aadhaar": 0,
+          "bank_account": 0,
+          "card_last4": 0,
+          "pan": 0,
+          "phone": 0
+        },
+        "runtime_budget": {
+          "accepted": true,
+          "estimated_cost_usd": 0.000773,
+          "estimated_total_tokens": 773,
+          "input_tokens": 5,
+          "max_cost_usd": 0.001,
+          "max_input_tokens": 256,
+          "max_total_tokens": 1024,
+          "reasons": [],
+          "reserved_pipeline_tokens": 768
+        },
+        "session_id": "websocket-demo",
+        "timestamp_utc": "2026-09-13T13:02:22.228337+00:00",
+        "trace_id": "e7061984-e311-4ad2-8818-b48da1420737",
+        "transport": "websocket"
+      },
+      {
+        "autogen_reviewed": false,
+        "crew_invoked": false,
+        "duration_ms": 0.525,
+        "endpoint": "/health",
+        "masked_request_text": "",
+        "outcome": "ok",
+        "pii_mask_counts": {
+          "aadhaar": 0,
+          "bank_account": 0,
+          "card_last4": 0,
+          "pan": 0,
+          "phone": 0
+        },
+        "session_id": null,
+        "status_code": 200,
+        "timestamp_utc": "2026-09-13T13:02:22.234010+00:00",
+        "trace_id": "64e818cd-9909-4f26-9a37-16eda6c43277",
+        "transport": "http"
+      }
+    ],
+    "one_entry_per_processed_request": true,
+    "raw_pii_absent": true
+  }
+}

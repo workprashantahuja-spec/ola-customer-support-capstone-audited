@@ -1,0 +1,36 @@
+{
+  "audit_date": "2026-09-13",
+  "full_runs": [
+    {
+      "run": 1,
+      "status": "PASS",
+      "commands": 14,
+      "main_test_output": "48 tests passed",
+      "retrieval_test_output": "11 tests passed"
+    },
+    {
+      "run": 2,
+      "status": "PASS",
+      "commands": 14,
+      "main_test_output": "48 tests passed",
+      "retrieval_test_output": "11 tests passed"
+    }
+  ],
+  "live_server_evidence": {
+    "status": "PASS",
+    "actual_server_started": true,
+    "http_policy_ticket_fallback_passed": true,
+    "websocket_memory_and_disconnect_passed": true,
+    "network_scope": "localhost only; API keys removed",
+    "platform": "linux"
+  },
+  "requirement_audit": "FINAL-AUDIT.md",
+  "audited_package_file_count": 91,
+  "audited_package_files_sha256": "2425db7a3ff015b1bf3cec6c7a6a011ddef45a554cd51b20f54b4da2411fb840",
+  "published_repository_before_audit": "82 blobs plus 3 directories; public main branch",
+  "github_update_status": "not synced after audit because the GitHub write tool usage limit rejected the update",
+  "remaining_user_actions": [
+    "verify Windows setup locally",
+    "confirm final LMS submission and acceptance"
+  ]
+}

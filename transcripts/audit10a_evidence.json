@@ -1,0 +1,59 @@
+{
+  "audit_status": "TARGETED_REPAIRS_PASS_WITH_DOCUMENTED_LIMITS",
+  "findings": {
+    "ticket_guard_accepts_invented_answer": false,
+    "judge_scores_with_invented_claim": {
+      "accuracy": 1,
+      "grounding": 1,
+      "completeness": 5,
+      "safety": 1,
+      "reason": "Matched 100% of required facts; independent source-text check failed; approved source and structure passed; unsafe-action check failed."
+    },
+    "long_unbroken_input_budget": {
+      "accepted": false,
+      "input_tokens": 900,
+      "reserved_pipeline_tokens": 768,
+      "estimated_total_tokens": 1668,
+      "max_input_tokens": 256,
+      "max_total_tokens": 1024,
+      "estimated_cost_usd": 0.001668,
+      "max_cost_usd": 0.001,
+      "reasons": [
+        "input_token_limit",
+        "total_token_limit",
+        "reference_cost_limit"
+      ]
+    },
+    "cache_after_source_version_change": {
+      "answer": "New policy.",
+      "cache_hit": false,
+      "retrieval_calls": 2,
+      "fingerprint_calls": 3,
+      "scope": "Injected source-version change; real handbook files untouched"
+    },
+    "api_failure_paths": [
+      {
+        "case": "missing_message",
+        "http_status": 422,
+        "new_log_entries": 1
+      },
+      {
+        "case": "whitespace_message",
+        "http_status": 400,
+        "new_log_entries": 1
+      },
+      {
+        "case": "unknown_ticket",
+        "http_status": 404,
+        "new_log_entries": 1
+      }
+    ],
+    "fabricated_phone_survives_in_log_session_id": false,
+    "unselected_natural_paraphrase": {
+      "query": "Who handles a suspected account takeover?",
+      "fallback": true,
+      "top_similarity": 0.388068,
+      "note": "This earlier trial failed before the evaluated wording was selected; not held-out evaluation."
+    }
+  }
+}

@@ -1,0 +1,684 @@
+{
+  "portion": 2,
+  "rubric_tasks": [
+    4,
+    5
+  ],
+  "status": "PASS",
+  "runtime": "local SentenceTransformers + ChromaDB + deterministic extractive MOCK_LLM",
+  "network_check": "Python socket connection and DNS calls blocked",
+  "calibration": {
+    "in_scope": [
+      {
+        "question": "What is the maximum service credit for one incident?",
+        "expected_doc": "08_service_credits.md",
+        "scores": {
+          "fixed": 0.568735,
+          "sentence": 0.531457
+        }
+      },
+      {
+        "question": "How long are closed tickets and request logs retained?",
+        "expected_doc": "12_ticket_data_retention.md",
+        "scores": {
+          "fixed": 0.727765,
+          "sentence": 0.764664
+        }
+      },
+      {
+        "question": "Is routine support available on Sunday?",
+        "expected_doc": "06_business_hours_and_holidays.md",
+        "scores": {
+          "fixed": 0.624197,
+          "sentence": 0.638851
+        }
+      },
+      {
+        "question": "What happens after a feedback rating of 1?",
+        "expected_doc": "09_feedback_collection.md",
+        "scores": {
+          "fixed": 0.594146,
+          "sentence": 0.623025
+        }
+      },
+      {
+        "question": "Can a verified VIP P3 ticket take priority over a P1 case?",
+        "expected_doc": "10_vip_handling.md",
+        "scores": {
+          "fixed": 0.673769,
+          "sentence": 0.695657
+        }
+      }
+    ],
+    "out_of_scope": [
+      {
+        "question": "What is the weather in Mumbai tomorrow?",
+        "scores": {
+          "fixed": 0.278553,
+          "sentence": 0.273481
+        },
+        "top_sources": {
+          "fixed": "06_business_hours_and_holidays.md",
+          "sentence": "06_business_hours_and_holidays.md"
+        }
+      },
+      {
+        "question": "How do I change a tyre on my car?",
+        "scores": {
+          "fixed": 0.074373,
+          "sentence": 0.095319
+        },
+        "top_sources": {
+          "fixed": "03_escalation_matrix.md",
+          "sentence": "03_escalation_matrix.md"
+        }
+      },
+      {
+        "question": "Write a poem about the moon.",
+        "scores": {
+          "fixed": 0.080016,
+          "sentence": 0.097531
+        },
+        "top_sources": {
+          "fixed": "12_ticket_data_retention.md",
+          "sentence": "09_feedback_collection.md"
+        }
+      }
+    ],
+    "summary": {
+      "minimum_in_scope_score": 0.531457,
+      "maximum_out_of_scope_score": 0.278553,
+      "observed_separation": 0.252904,
+      "chosen_threshold": 0.4,
+      "rule": "answer when top similarity >= threshold; otherwise return fallback"
+    }
+  },
+  "comparison": {
+    "top_k_chunks": 3,
+    "deduplication": "parent document ID",
+    "strategies": {
+      "fixed": {
+        "queries": [
+          {
+            "question": "Which issues are classified as P1 Critical?",
+            "relevant_docs": [
+              "01_ticket_priority.md"
+            ],
+            "retrieved_unique_docs": [
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "1/1 = 1.0000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          {
+            "question": "How quickly must a P2 High ticket be acknowledged and resolved?",
+            "relevant_docs": [
+              "02_sla_by_severity.md"
+            ],
+            "retrieved_unique_docs": [
+              "02_sla_by_severity.md",
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Which human team handles a Technical Issue ticket?",
+            "relevant_docs": [
+              "03_escalation_matrix.md"
+            ],
+            "retrieved_unique_docs": [
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 0,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "0/1 = 0.0000",
+              "recall": "0/1 = 0.0000"
+            },
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          {
+            "question": "Can a charge for a cancelled or unprovided ride receive a refund review?",
+            "relevant_docs": [
+              "04_refunds_and_compensation.md"
+            ],
+            "retrieved_unique_docs": [
+              "04_refunds_and_compensation.md",
+              "08_service_credits.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Can ticket details be shared in a public social media reply?",
+            "relevant_docs": [
+              "05_communication_channels.md"
+            ],
+            "retrieved_unique_docs": [
+              "05_communication_channels.md",
+              "09_feedback_collection.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Is routine support available on Sunday?",
+            "relevant_docs": [
+              "06_business_hours_and_holidays.md"
+            ],
+            "retrieved_unique_docs": [
+              "06_business_hours_and_holidays.md",
+              "11_outage_communication.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "What happens on the third report of the same unresolved complaint?",
+            "relevant_docs": [
+              "07_repeat_complaints.md"
+            ],
+            "retrieved_unique_docs": [
+              "07_repeat_complaints.md",
+              "03_escalation_matrix.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "What is the maximum service credit for one incident?",
+            "relevant_docs": [
+              "08_service_credits.md"
+            ],
+            "retrieved_unique_docs": [
+              "08_service_credits.md",
+              "10_vip_handling.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "What happens after a feedback rating of 1?",
+            "relevant_docs": [
+              "09_feedback_collection.md"
+            ],
+            "retrieved_unique_docs": [
+              "09_feedback_collection.md",
+              "07_repeat_complaints.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Can a verified VIP P3 ticket take priority over a P1 case?",
+            "relevant_docs": [
+              "10_vip_handling.md"
+            ],
+            "retrieved_unique_docs": [
+              "10_vip_handling.md",
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "How often are progress updates provided during a widespread outage?",
+            "relevant_docs": [
+              "11_outage_communication.md"
+            ],
+            "retrieved_unique_docs": [
+              "11_outage_communication.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "1/1 = 1.0000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          {
+            "question": "How long are closed tickets and request logs retained?",
+            "relevant_docs": [
+              "12_ticket_data_retention.md"
+            ],
+            "retrieved_unique_docs": [
+              "12_ticket_data_retention.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "1/1 = 1.0000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 1.0,
+            "recall": 1.0
+          }
+        ],
+        "macro_precision": 0.5833,
+        "macro_recall": 0.9167,
+        "top1_correct": 11,
+        "query_count": 12
+      },
+      "sentence": {
+        "queries": [
+          {
+            "question": "Which issues are classified as P1 Critical?",
+            "relevant_docs": [
+              "01_ticket_priority.md"
+            ],
+            "retrieved_unique_docs": [
+              "01_ticket_priority.md",
+              "03_escalation_matrix.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "How quickly must a P2 High ticket be acknowledged and resolved?",
+            "relevant_docs": [
+              "02_sla_by_severity.md"
+            ],
+            "retrieved_unique_docs": [
+              "02_sla_by_severity.md",
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Which human team handles a Technical Issue ticket?",
+            "relevant_docs": [
+              "03_escalation_matrix.md"
+            ],
+            "retrieved_unique_docs": [
+              "03_escalation_matrix.md",
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Can a charge for a cancelled or unprovided ride receive a refund review?",
+            "relevant_docs": [
+              "04_refunds_and_compensation.md"
+            ],
+            "retrieved_unique_docs": [
+              "04_refunds_and_compensation.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "1/1 = 1.0000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          {
+            "question": "Can ticket details be shared in a public social media reply?",
+            "relevant_docs": [
+              "05_communication_channels.md"
+            ],
+            "retrieved_unique_docs": [
+              "05_communication_channels.md",
+              "09_feedback_collection.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "Is routine support available on Sunday?",
+            "relevant_docs": [
+              "06_business_hours_and_holidays.md"
+            ],
+            "retrieved_unique_docs": [
+              "06_business_hours_and_holidays.md",
+              "11_outage_communication.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "What happens on the third report of the same unresolved complaint?",
+            "relevant_docs": [
+              "07_repeat_complaints.md"
+            ],
+            "retrieved_unique_docs": [
+              "07_repeat_complaints.md",
+              "03_escalation_matrix.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "What is the maximum service credit for one incident?",
+            "relevant_docs": [
+              "08_service_credits.md"
+            ],
+            "retrieved_unique_docs": [
+              "08_service_credits.md",
+              "10_vip_handling.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "What happens after a feedback rating of 1?",
+            "relevant_docs": [
+              "09_feedback_collection.md"
+            ],
+            "retrieved_unique_docs": [
+              "09_feedback_collection.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "1/1 = 1.0000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          {
+            "question": "Can a verified VIP P3 ticket take priority over a P1 case?",
+            "relevant_docs": [
+              "10_vip_handling.md"
+            ],
+            "retrieved_unique_docs": [
+              "10_vip_handling.md",
+              "01_ticket_priority.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          {
+            "question": "How often are progress updates provided during a widespread outage?",
+            "relevant_docs": [
+              "11_outage_communication.md"
+            ],
+            "retrieved_unique_docs": [
+              "11_outage_communication.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 1,
+              "relevant_count": 1,
+              "precision": "1/1 = 1.0000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          {
+            "question": "How long are closed tickets and request logs retained?",
+            "relevant_docs": [
+              "12_ticket_data_retention.md"
+            ],
+            "retrieved_unique_docs": [
+              "12_ticket_data_retention.md",
+              "09_feedback_collection.md"
+            ],
+            "arithmetic": {
+              "true_positives": 1,
+              "retrieved_unique_count": 2,
+              "relevant_count": 1,
+              "precision": "1/2 = 0.5000",
+              "recall": "1/1 = 1.0000"
+            },
+            "precision": 0.5,
+            "recall": 1.0
+          }
+        ],
+        "macro_precision": 0.625,
+        "macro_recall": 1.0,
+        "top1_correct": 12,
+        "query_count": 12
+      }
+    },
+    "recommendation": {
+      "strategy": "sentence",
+      "reason": "Sentence chunks achieved higher macro precision and recall on the same 12 questions, while preserving complete policy sentences for grounded answers."
+    }
+  },
+  "grounded_answer_demonstrations": [
+    {
+      "question": "What is the maximum service credit for one incident?",
+      "answer": "An issued service credit expires after 30 calendar days, is non-transferable, and cannot be exchanged for cash. A service credit must not reimburse a charge already covered by a billing refund, and multiple reports about the same incident do not increase the INR 200 limit.",
+      "grounded": true,
+      "fallback": false,
+      "strategy": "sentence",
+      "threshold": 0.4,
+      "top_similarity": 0.531457,
+      "sources": [
+        "knowledge_base/08_service_credits.md"
+      ],
+      "retrieved_context": "Service-credit policy\nAn issued service credit expires after 30 calendar days, is non-transferable, and cannot be exchanged for cash. A service credit must not reimburse a charge already covered by a billing refund, and multiple reports about the same incident do not increase the INR 200 limit.",
+      "model": "deterministic_extractive_mock_v1",
+      "cache_hit": false,
+      "cache_key": "what is the maximum service credit for one incident?"
+    },
+    {
+      "question": "How long are closed tickets and request logs retained?",
+      "answer": "Retain a ticket, its conversation, linked evidence, and feedback while it is active and for 90 calendar days after it enters Closed status; if it reopens, calculate the retention period from its next closure. Retain structured request logs for 30 calendar days from creation and mask phone numbers before request text enters a model or is written to a log.",
+      "grounded": true,
+      "fallback": false,
+      "strategy": "sentence",
+      "threshold": 0.4,
+      "top_similarity": 0.764664,
+      "sources": [
+        "knowledge_base/12_ticket_data_retention.md"
+      ],
+      "retrieved_context": "Ticket data retention\nRetain a ticket, its conversation, linked evidence, and feedback while it is active and for 90 calendar days after it enters Closed status; if it reopens, calculate the retention period from its next closure. Retain structured request logs for 30 calendar days from creation and mask phone numbers before request text enters a model or is written to a log.",
+      "model": "deterministic_extractive_mock_v1",
+      "cache_hit": false,
+      "cache_key": "how long are closed tickets and request logs retained?"
+    },
+    {
+      "question": "Is routine support available on Sunday?",
+      "answer": "Routine support operates Monday through Saturday from 09:00 to 18:00 Indian Standard Time, using the Asia/Kolkata time zone. Routine support is closed on Sundays and on the project holidays of 26 January, 15 August, and 2 October.",
+      "grounded": true,
+      "fallback": false,
+      "strategy": "sentence",
+      "threshold": 0.4,
+      "top_similarity": 0.638851,
+      "sources": [
+        "knowledge_base/06_business_hours_and_holidays.md"
+      ],
+      "retrieved_context": "Business hours and holiday support\nRoutine support operates Monday through Saturday from 09:00 to 18:00 Indian Standard Time, using the Asia/Kolkata time zone. Routine support is closed on Sundays and on the project holidays of 26 January, 15 August, and 2 October.",
+      "model": "deterministic_extractive_mock_v1",
+      "cache_hit": false,
+      "cache_key": "is routine support available on sunday?"
+    },
+    {
+      "question": "What happens after a feedback rating of 1?",
+      "answer": "A rating of 1 or 2 requires Support Lead review within 1 business day, but does not automatically change the ticket severity or approve compensation. Invite feedback consistently from all eligible resolved cases and do not reward, suppress, or selectively request positive ratings.",
+      "grounded": true,
+      "fallback": false,
+      "strategy": "sentence",
+      "threshold": 0.4,
+      "top_similarity": 0.623025,
+      "sources": [
+        "knowledge_base/09_feedback_collection.md"
+      ],
+      "retrieved_context": "Feedback collection\nA rating of 1 or 2 requires Support Lead review within 1 business day, but does not automatically change the ticket severity or approve compensation. Invite feedback consistently from all eligible resolved cases and do not reward, suppress, or selectively request positive ratings.",
+      "model": "deterministic_extractive_mock_v1",
+      "cache_hit": false,
+      "cache_key": "what happens after a feedback rating of 1?"
+    },
+    {
+      "question": "Can a verified VIP P3 ticket take priority over a P1 case?",
+      "answer": "All P1 cases take priority over P2 and P3 cases, so VIP status never moves a lower-severity case ahead of a more urgent one. The same SLA targets, refund-evidence requirements, and INR 200 service-credit limit apply to VIP and standard customers.",
+      "grounded": true,
+      "fallback": false,
+      "strategy": "sentence",
+      "threshold": 0.4,
+      "top_similarity": 0.695657,
+      "sources": [
+        "knowledge_base/10_vip_handling.md"
+      ],
+      "retrieved_context": "VIP customer handling\nAll P1 cases take priority over P2 and P3 cases, so VIP status never moves a lower-severity case ahead of a more urgent one. The same SLA targets, refund-evidence requirements, and INR 200 service-credit limit apply to VIP and standard customers.",
+      "model": "deterministic_extractive_mock_v1",
+      "cache_hit": false,
+      "cache_key": "can a verified vip p3 ticket take priority over a p1 case?"
+    },
+    {
+      "question": "What happens on the third report of the same unresolved complaint?",
+      "answer": "When new evidence shows that a Resolved or Closed issue remains unresolved, a human reopens the case as In Progress unless its severity requires immediate P1 handling. The third report of the same unresolved complaint within 30 calendar days requires Support Lead review, while an existing P1 case remains with its specialist lead.",
+      "grounded": true,
+      "fallback": false,
+      "strategy": "sentence",
+      "threshold": 0.4,
+      "top_similarity": 0.657579,
+      "sources": [
+        "knowledge_base/07_repeat_complaints.md"
+      ],
+      "retrieved_context": "Repeat-complaint handling\nWhen new evidence shows that a Resolved or Closed issue remains unresolved, a human reopens the case as In Progress unless its severity requires immediate P1 handling. The third report of the same unresolved complaint within 30 calendar days requires Support Lead review, while an existing P1 case remains with its specialist lead.",
+      "model": "deterministic_extractive_mock_v1",
+      "cache_hit": false,
+      "cache_key": "what happens on the third report of the same unresolved complaint?"
+    }
+  ],
+  "out_of_scope_fallback_demonstration": {
+    "question": "What is the weather in Mumbai tomorrow?",
+    "answer": "I do not have enough support-policy information to answer that question.",
+    "grounded": false,
+    "fallback": true,
+    "strategy": "sentence",
+    "threshold": 0.4,
+    "top_similarity": 0.273481,
+    "sources": [],
+    "model": "deterministic_extractive_mock_v1",
+    "cache_hit": false,
+    "cache_key": "what is the weather in mumbai tomorrow?"
+  },
+  "model_calls": 6,
+  "grounding_proof": "Each supported answer equals the body of its first retrieved policy chunk."
+}

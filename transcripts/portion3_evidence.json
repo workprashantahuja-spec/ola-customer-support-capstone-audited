@@ -1,0 +1,100 @@
+{
+  "portion": 3,
+  "rubric_task": 6,
+  "status": "PASS",
+  "dataset_validation": {
+    "records": 50,
+    "category_counts": {
+      "Billing": 11,
+      "Technical Issue": 11,
+      "Account Access": 11,
+      "Product Defect": 6,
+      "General Inquiry": 11
+    },
+    "status_counts": {
+      "Open": 7,
+      "In Progress": 18,
+      "Escalated": 9,
+      "Resolved": 10,
+      "Closed": 6
+    },
+    "escalated_count": 10,
+    "escalated_percentage": 20.0
+  },
+  "formula": {
+    "expression": "0.65 \u00d7 escalation flag + 0.35 \u00d7 (days since created / 30)",
+    "flag_weight": 0.65,
+    "age_weight": 0.35,
+    "age_normalization_max_days": 30,
+    "human_attention_threshold": 0.5
+  },
+  "distribution_and_threshold_justification": {
+    "records": 50,
+    "flagged_records": 10,
+    "unflagged_records": 40,
+    "flagged_score_range": {
+      "min": 0.6617,
+      "max": 0.9883
+    },
+    "unflagged_score_range": {
+      "min": 0.0,
+      "max": 0.35
+    },
+    "gap_between_groups": 0.3117,
+    "threshold": 0.5,
+    "human_attention_recommendations": 10,
+    "human_attention_percentage": 20.0,
+    "recommended_ticket_ids": [
+      "SUP-0001",
+      "SUP-0002",
+      "SUP-0004",
+      "SUP-0010",
+      "SUP-0023",
+      "SUP-0027",
+      "SUP-0030",
+      "SUP-0032",
+      "SUP-0048",
+      "SUP-0050"
+    ]
+  },
+  "known_ticket_demonstrations": [
+    {
+      "record_id": "SUP-0001",
+      "status": "Escalated",
+      "resolution_time_hours": 48,
+      "days_since_created": 29,
+      "escalated": true,
+      "escalation_score": 0.9883,
+      "human_attention_recommended": true,
+      "score_formula": "0.65 \u00d7 escalation flag + 0.35 \u00d7 (days since created / 30)",
+      "score_interpretation": "This is a fabricated-data attention score, not evidence of an SLA breach, refund eligibility, or a completed human escalation."
+    },
+    {
+      "record_id": "SUP-0014",
+      "status": "In Progress",
+      "resolution_time_hours": 4,
+      "days_since_created": 27,
+      "escalated": false,
+      "escalation_score": 0.315,
+      "human_attention_recommended": false,
+      "score_formula": "0.65 \u00d7 escalation flag + 0.35 \u00d7 (days since created / 30)",
+      "score_interpretation": "This is a fabricated-data attention score, not evidence of an SLA breach, refund eligibility, or a completed human escalation."
+    },
+    {
+      "record_id": "SUP-0002",
+      "status": "Resolved",
+      "resolution_time_hours": 9,
+      "days_since_created": 19,
+      "escalated": true,
+      "escalation_score": 0.8717,
+      "human_attention_recommended": true,
+      "score_formula": "0.65 \u00d7 escalation flag + 0.35 \u00d7 (days since created / 30)",
+      "score_interpretation": "This is a fabricated-data attention score, not evidence of an SLA breach, refund eligibility, or a completed human escalation."
+    }
+  ],
+  "missing_ticket_demonstration": {
+    "record_id": "SUP-9999",
+    "error": "Support ticket not found: SUP-9999"
+  },
+  "limitation": "The score ranks fabricated ticket data only. Days since created is not a real SLA clock, and the lookup does not establish a real SLA breach, refund eligibility, or a completed escalation."
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "role": "human",
+    "content": "Please check ticket SUP-0014."
+  },
+  {
+    "role": "ai",
+    "content": "{\"request_type\":\"ticket\",\"answer\":\"Ticket SUP-0014 is In Progress. Its recorded resolution-time value is 4 hours and its attention score is 0.3150. Human attention is not currently recommended by the fabricated-data score.\",\"grounded\":true,\"fallback_used\":false,\"sources\":[\"fabricated_support_tickets\"],\"ticket\":{\"record_id\":\"SUP-0014\",\"status\":\"In Progress\",\"resolution_time_hours\":4,\"days_since_created\":27,\"escalated\":false,\"escalation_score\":0.315,\"human_attention_recommended\":false}}"
+  },
+  {
+    "role": "human",
+    "content": "What is its status?"
+  },
+  {
+    "role": "ai",
+    "content": "{\"request_type\":\"ticket\",\"answer\":\"Ticket SUP-0014 is In Progress. Its recorded resolution-time value is 4 hours and its attention score is 0.3150. Human attention is not currently recommended by the fabricated-data score.\",\"grounded\":true,\"fallback_used\":false,\"sources\":[\"fabricated_support_tickets\"],\"ticket\":{\"record_id\":\"SUP-0014\",\"status\":\"In Progress\",\"resolution_time_hours\":4,\"days_since_created\":27,\"escalated\":false,\"escalation_score\":0.315,\"human_attention_recommended\":false}}"
+  }
+]

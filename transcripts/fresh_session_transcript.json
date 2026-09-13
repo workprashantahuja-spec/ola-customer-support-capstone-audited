@@ -1,0 +1,10 @@
+[
+  {
+    "role": "human",
+    "content": "What is its status?"
+  },
+  {
+    "role": "ai",
+    "content": "Please provide the ticket ID in the format SUP-0000."
+  }
+]

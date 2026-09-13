@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "commands_passed": 14,
+  "commands_total": 14,
+  "runtime": {
+    "mock_llm": true,
+    "api_keys_removed": true,
+    "proxy_variables_removed": true,
+    "crewai_telemetry_disabled": true
+  },
+  "results": [
+    {
+      "command": [
+        "python",
+        "dataset.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"validation\": \"PASS\",\n  \"deterministic_regeneration\": \"PASS\",\n  \"seed\": 3,\n  \"records\": 50,\n  \"category_counts\": {\n    \"Billing\": 11,\n    \"Technical Issue\": 11,\n    \"Account Access\": 11,\n    \"Product Defect\": 6,\n    \"General Inquiry\": 11\n  },\n  \"status_counts\": {\n    \"Open\": 7,\n    \"In Progress\": 18,\n    \"Escalated\": 9,\n    \"Resolved\": 10,\n    \"Closed\": 6\n  },\n  \"escalated_count\": 10,\n  \"escalated_percentage\": 20.0\n}"
+    },
+    {
+      "command": [
+        "python",
+        "verify_task3.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"task\": 3,\n  \"status\": \"PASS\",\n  \"python\": \"3.12.14\",\n  \"platform\": \"linux\",\n  \"versions\": {\n    \"torch\": \"2.14.0+cpu\",\n    \"sentence-transformers\": \"6.0.1\",\n    \"chromadb\": \"1.5.9\",\n    \"transformers\": \"5.16.1\",\n    \"huggingface-hub\": \"1.30.0\",\n    \"numpy\": \"2.5.3\"\n  },\n  \"network_check\": \"Python socket connection and DNS calls blocked during build/query\",\n  \"build\": {\n    \"documents\": 12,\n    \"model\": \"sentence-transformers/all-MiniLM-L6-v2\",\n    \"model_revision\": \"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\",\n    \"collections\": {\n      \"fixed\": {\n        \"name\": \"ola_fixed_v1\",\n        \"chunks\": 31,\n        \"dimensions\": 384,\n        \"distance\": \"cosine\",\n        \"max_chunk_tokens\": 93,\n        \"stale_chunks_removed\": 0\n      },\n      \"sentence\": {\n        \"name\": \"ola_sentence_v1\",\n        \"chunks\": 36,\n        \"dimensions\": 384,\n        \"distance\": \"cosine\",\n        \"max_chunk_tokens\": 80,\n        \"stale_chunks_removed\": 0\n      }\n    }\n  },\n  \"repeated_upsert_same_counts\": true,\n  \"separate_process_reopen\": {\n    \"fixed\": {\n      \"chunks\": 31,\n      \"retrieval_passed\": true\n    },\n    \"sentence\": {\n      \"chunks\": 36,\n      \"retrieval_passed\": true\n    }\n  },\n  \"retrieval_cases_passed\": 6,\n  \"scope\": \"Task 3 retrieval check only; generation and scored evaluation are pending\"\n}\nFull evidence: transcripts/task3_search_check.json\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 2262.76it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion2.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 2,\n  \"status\": \"PASS\",\n  \"threshold\": {\n    \"minimum_in_scope_score\": 0.531457,\n    \"maximum_out_of_scope_score\": 0.278553,\n    \"observed_separation\": 0.252904,\n    \"chosen_threshold\": 0.4,\n    \"rule\": \"answer when top similarity >= threshold; otherwise return fallback\"\n  },\n  \"comparison\": {\n    \"fixed\": {\n      \"macro_precision\": 0.5833,\n      \"macro_recall\": 0.9167,\n      \"top1_correct\": 11,\n      \"query_count\": 12\n    },\n    \"sentence\": {\n      \"macro_precision\": 0.625,\n      \"macro_recall\": 1.0,\n      \"top1_correct\": 12,\n      \"query_count\": 12\n    }\n  },\n  \"recommended_strategy\": \"sentence\",\n  \"grounded_answers\": 6,\n  \"fallback_passed\": true,\n  \"evidence\": \"transcripts/portion2_evidence.json\"\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3567.09it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion3.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 3,\n  \"status\": \"PASS\",\n  \"formula\": {\n    \"expression\": \"0.65 \\u00d7 escalation flag + 0.35 \\u00d7 (days since created / 30)\",\n    \"flag_weight\": 0.65,\n    \"age_weight\": 0.35,\n    \"age_normalization_max_days\": 30,\n    \"human_attention_threshold\": 0.5\n  },\n  \"distribution\": {\n    \"records\": 50,\n    \"flagged_records\": 10,\n    \"unflagged_records\": 40,\n    \"flagged_score_range\": {\n      \"min\": 0.6617,\n      \"max\": 0.9883\n    },\n    \"unflagged_score_range\": {\n      \"min\": 0.0,\n      \"max\": 0.35\n    },\n    \"gap_between_groups\": 0.3117,\n    \"threshold\": 0.5,\n    \"human_attention_recommendations\": 10,\n    \"human_attention_percentage\": 20.0,\n    \"recommended_ticket_ids\": [\n      \"SUP-0001\",\n      \"SUP-0002\",\n      \"SUP-0004\",\n      \"SUP-0010\",\n      \"SUP-0023\",\n      \"SUP-0027\",\n      \"SUP-0030\",\n      \"SUP-0032\",\n      \"SUP-0048\",\n      \"SUP-0050\"\n    ]\n  },\n  \"known_ticket_count\": 3,\n  \"missing_ticket\": {\n    \"record_id\": \"SUP-9999\",\n    \"error\": \"Support ticket not found: SUP-9999\"\n  },\n  \"evidence\": \"transcripts/portion3_evidence.json\"\n}"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion4.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 4,\n  \"status\": \"PASS\",\n  \"kickoff_count\": 2,\n  \"tools_used\": [\n    \"search_support_policies\",\n    \"check_support_ticket_status\"\n  ],\n  \"validated_responses\": 2,\n  \"invalid_schema_rejected\": true,\n  \"evidence\": \"transcripts/portion4_evidence.json\"\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3405.65it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion5.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 5,\n  \"status\": \"PASS\",\n  \"context_retained\": true,\n  \"sessions_isolated\": true,\n  \"phone_numbers_masked\": 1,\n  \"card_last4_masked\": 1,\n  \"pan_masked\": 1,\n  \"aadhaar_masked\": 1,\n  \"bank_accounts_masked\": 1,\n  \"injection_blocked\": true,\n  \"unsupported_output_blocked\": true,\n  \"evidence\": \"transcripts/portion5_evidence.json\"\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3150.46it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion6.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 6,\n  \"status\": \"PASS\",\n  \"team\": \"RoundRobinGroupChat\",\n  \"max_turns\": 2,\n  \"approved_unchanged\": true,\n  \"incorrect_answer_revised\": true,\n  \"revision_matches_evidence\": true,\n  \"evidence\": \"transcripts/portion6_evidence.json\"\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3372.47it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion7.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 7,\n  \"status\": \"PASS\",\n  \"http_endpoints\": [\n    \"GET /health\",\n    \"POST /ask\",\n    \"POST /sessions/{session_id}/reset\"\n  ],\n  \"websocket_memory_used\": true,\n  \"disconnect_handled\": true,\n  \"jsonl_entries\": 6,\n  \"raw_pii_absent\": true,\n  \"evidence\": \"transcripts/portion7_evidence.json\"\n}"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion8.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 8,\n  \"status\": \"PASS\",\n  \"risk\": \"Medium\",\n  \"forbidden_tool_assignment_blocked\": true,\n  \"oversized_request\": \"budget_rejected\",\n  \"crew_invoked_for_oversized_request\": false,\n  \"cache_first_hit\": false,\n  \"cache_second_hit\": true,\n  \"generation_calls_after_repeat\": 1,\n  \"evidence\": \"transcripts/portion8_evidence.json\"\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 4437.05it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "verify_portion9.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "{\n  \"portion\": 9,\n  \"status\": \"PASS\",\n  \"queries\": 15,\n  \"kb_topics\": 12,\n  \"edge_cases\": 3,\n  \"averages\": {\n    \"accuracy\": 5.0,\n    \"grounding\": 5.0,\n    \"completeness\": 5.0,\n    \"safety\": 5.0\n  },\n  \"request_log_entries_for_this_run\": 15,\n  \"evidence\": \"transcripts/portion9_evaluation.json\"\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3355.31it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "audit_regressions.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "-9999\u001b[00m\n\u001b[91m Error during LLM call: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n{\n  \"audit_status\": \"TARGETED_REPAIRS_PASS_WITH_DOCUMENTED_LIMITS\",\n  \"findings\": {\n    \"ticket_guard_accepts_invented_answer\": false,\n    \"judge_scores_with_invented_claim\": {\n      \"accuracy\": 1,\n      \"grounding\": 1,\n      \"completeness\": 5,\n      \"safety\": 1,\n      \"reason\": \"Matched 100% of required facts; independent source-text check failed; approved source and structure passed; unsafe-action check failed.\"\n    },\n    \"long_unbroken_input_budget\": {\n      \"accepted\": false,\n      \"input_tokens\": 900,\n      \"reserved_pipeline_tokens\": 768,\n      \"estimated_total_tokens\": 1668,\n      \"max_input_tokens\": 256,\n      \"max_total_tokens\": 1024,\n      \"estimated_cost_usd\": 0.001668,\n      \"max_cost_usd\": 0.001,\n      \"reasons\": [\n        \"input_token_limit\",\n        \"total_token_limit\",\n        \"reference_cost_limit\"\n      ]\n    },\n    \"cache_after_source_version_change\": {\n      \"answer\": \"New policy.\",\n      \"cache_hit\": false,\n      \"retrieval_calls\": 2,\n      \"fingerprint_calls\": 3,\n      \"scope\": \"Injected source-version change; real handbook files untouched\"\n    },\n    \"api_failure_paths\": [\n      {\n        \"case\": \"missing_message\",\n        \"http_status\": 422,\n        \"new_log_entries\": 1\n      },\n      {\n        \"case\": \"whitespace_message\",\n        \"http_status\": 400,\n        \"new_log_entries\": 1\n      },\n      {\n        \"case\": \"unknown_ticket\",\n        \"http_status\": 404,\n        \"new_log_entries\": 1\n      }\n    ],\n    \"fabricated_phone_survives_in_log_session_id\": false,\n    \"unselected_natural_paraphrase\": {\n      \"query\": \"Who handles a suspected account takeover?\",\n      \"fallback\": true,\n      \"top_similarity\": 0.388068,\n      \"note\": \"This earlier trial failed before the evaluated wording was selected; not held-out evaluation.\"\n    }\n  }\n}\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3110.22it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-q",
+        "test_api_app.py",
+        "test_autogen_review.py",
+        "test_memory_guardrails.py",
+        "test_crew_workflow.py",
+        "test_governance_cache.py",
+        "test_evaluation.py",
+        "test_submission_audit.py"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "\u001b[91m Error during LLM call: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m Error during LLM call: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m Error during LLM call: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\u001b[91m An unknown error occurred. Please check the details below.\u001b[00m\n\u001b[91m Error details: Support ticket not found: SUP-9999\u001b[00m\n\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 103/103 [00:00<00:00, 3028.57it/s]\n/workspace/scratch/ca9b95fb2f3b/capstone-submission/rag_index.py:159: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  \"dimension\": int(self.model.get_sentence_embedding_dimension()),\n/workspace/scratch/ca9b95fb2f3b/capstone-starter/.venv/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py:155: DeprecationWarning: legacy embedding function config\n  return load_collection_configuration_from_json(self._model.configuration_json)\n----------------------------------------------------------------------\nRan 48 tests in 19.373s\n\nOK"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "----------------------------------------------------------------------\nRan 11 tests in 0.003s\n\nOK"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "return_code": 0,
+      "passed": true,
+      "output_tail": "No broken requirements found."
+    }
+  ]
+}

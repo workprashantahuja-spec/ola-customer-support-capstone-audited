@@ -1,0 +1,245 @@
+{
+  "task": 3,
+  "status": "PASS",
+  "python": "3.12.14",
+  "platform": "linux",
+  "versions": {
+    "torch": "2.14.0+cpu",
+    "sentence-transformers": "6.0.1",
+    "chromadb": "1.5.9",
+    "transformers": "5.16.1",
+    "huggingface-hub": "1.30.0",
+    "numpy": "2.5.3"
+  },
+  "network_check": "Python socket connection and DNS calls blocked during build/query",
+  "build": {
+    "documents": 12,
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "collections": {
+      "fixed": {
+        "name": "ola_fixed_v1",
+        "chunks": 31,
+        "dimensions": 384,
+        "distance": "cosine",
+        "max_chunk_tokens": 93,
+        "stale_chunks_removed": 0
+      },
+      "sentence": {
+        "name": "ola_sentence_v1",
+        "chunks": 36,
+        "dimensions": 384,
+        "distance": "cosine",
+        "max_chunk_tokens": 80,
+        "stale_chunks_removed": 0
+      }
+    }
+  },
+  "repeated_upsert_same_counts": true,
+  "separate_process_reopen": {
+    "fixed": {
+      "chunks": 31,
+      "retrieval_passed": true
+    },
+    "sentence": {
+      "chunks": 36,
+      "retrieval_passed": true
+    }
+  },
+  "retrieval_cases_passed": 6,
+  "retrieval_cases": [
+    {
+      "expected_doc": "08_service_credits.md",
+      "expected_doc_in_top3": true,
+      "question": "What is the maximum service credit for one incident?",
+      "strategy": "fixed",
+      "hits": [
+        {
+          "chunk_id": "fixed:08_service_credits.md:0000",
+          "doc_id": "08_service_credits.md",
+          "source": "knowledge_base/08_service_credits.md",
+          "title": "Service-credit policy",
+          "cosine_similarity": 0.568735,
+          "text": "Service-credit policy\nA confirmed service failure, such as a disrupted ride caused by an outage, may qualify for a discretionary goodwill service credit after human review. Only the Support Lead may approve a service credit, with a maximum total value of INR 200 for one incident and no automatic entitlement. An issued service credit expires after 30 calendar days, is non-transferable, and cannot be exchanged for cash. "
+        },
+        {
+          "chunk_id": "fixed:08_service_credits.md:0001",
+          "doc_id": "08_service_credits.md",
+          "source": "knowledge_base/08_service_credits.md",
+          "title": "Service-credit policy",
+          "cosine_similarity": 0.560348,
+          "text": "Service-credit policy\n after 30 calendar days, is non-transferable, and cannot be exchanged for cash. A service credit must not reimburse a charge already covered by a billing refund, and multiple reports about the same incident do not increase the INR 200 limit. The automated agent may explain these rules or recommend review, but it cannot issue credits or infer eligibility from the ticket status alone."
+        },
+        {
+          "chunk_id": "fixed:10_vip_handling.md:0001",
+          "doc_id": "10_vip_handling.md",
+          "source": "knowledge_base/10_vip_handling.md",
+          "title": "VIP customer handling",
+          "cosine_similarity": 0.480484,
+          "text": "VIP customer handling\n so VIP status never moves a lower-severity case ahead of a more urgent one. The same SLA targets, refund-evidence requirements, and INR 200 service-credit limit apply to VIP and standard customers. The case owner may personalize communication, but VIP status never permits access to another customer's records or an unapproved financial action."
+        }
+      ]
+    },
+    {
+      "expected_doc": "08_service_credits.md",
+      "expected_doc_in_top3": true,
+      "question": "What is the maximum service credit for one incident?",
+      "strategy": "sentence",
+      "hits": [
+        {
+          "chunk_id": "sentence:08_service_credits.md:0001",
+          "doc_id": "08_service_credits.md",
+          "source": "knowledge_base/08_service_credits.md",
+          "title": "Service-credit policy",
+          "cosine_similarity": 0.531457,
+          "text": "Service-credit policy\nAn issued service credit expires after 30 calendar days, is non-transferable, and cannot be exchanged for cash. A service credit must not reimburse a charge already covered by a billing refund, and multiple reports about the same incident do not increase the INR 200 limit."
+        },
+        {
+          "chunk_id": "sentence:08_service_credits.md:0000",
+          "doc_id": "08_service_credits.md",
+          "source": "knowledge_base/08_service_credits.md",
+          "title": "Service-credit policy",
+          "cosine_similarity": 0.52935,
+          "text": "Service-credit policy\nA confirmed service failure, such as a disrupted ride caused by an outage, may qualify for a discretionary goodwill service credit after human review. Only the Support Lead may approve a service credit, with a maximum total value of INR 200 for one incident and no automatic entitlement."
+        },
+        {
+          "chunk_id": "sentence:10_vip_handling.md:0001",
+          "doc_id": "10_vip_handling.md",
+          "source": "knowledge_base/10_vip_handling.md",
+          "title": "VIP customer handling",
+          "cosine_similarity": 0.432289,
+          "text": "VIP customer handling\nAll P1 cases take priority over P2 and P3 cases, so VIP status never moves a lower-severity case ahead of a more urgent one. The same SLA targets, refund-evidence requirements, and INR 200 service-credit limit apply to VIP and standard customers."
+        }
+      ]
+    },
+    {
+      "expected_doc": "12_ticket_data_retention.md",
+      "expected_doc_in_top3": true,
+      "question": "How long are request logs retained?",
+      "strategy": "fixed",
+      "hits": [
+        {
+          "chunk_id": "fixed:12_ticket_data_retention.md:0000",
+          "doc_id": "12_ticket_data_retention.md",
+          "source": "knowledge_base/12_ticket_data_retention.md",
+          "title": "Ticket data retention",
+          "cosine_similarity": 0.579142,
+          "text": "Ticket data retention\nRetain a ticket, its conversation, linked evidence, and feedback while it is active and for 90 calendar days after it enters Closed status; if it reopens, calculate the retention period from its next closure. Retain structured request logs for 30 calendar days from creation and mask phone numbers before request text enters a model or is written to a log. When a retention period ends, the human dat"
+        },
+        {
+          "chunk_id": "fixed:12_ticket_data_retention.md:0001",
+          "doc_id": "12_ticket_data_retention.md",
+          "source": "knowledge_base/12_ticket_data_retention.md",
+          "title": "Ticket data retention",
+          "cosine_similarity": 0.458346,
+          "text": "Ticket data retention\nters a model or is written to a log. When a retention period ends, the human data owner deletes the corresponding records or irreversibly anonymizes them so no customer or ticket can be reconstructed. Any longer retention requires a documented human-approved exception containing a purpose and an expiry date, rather than an indefinite default. The automated agent may explain retention rules, but it"
+        },
+        {
+          "chunk_id": "fixed:12_ticket_data_retention.md:0002",
+          "doc_id": "12_ticket_data_retention.md",
+          "source": "knowledge_base/12_ticket_data_retention.md",
+          "title": "Ticket data retention",
+          "cosine_similarity": 0.390514,
+          "text": "Ticket data retention\nn an indefinite default. The automated agent may explain retention rules, but it must not claim that deletion or anonymization has occurred without evidence from the responsible human process."
+        }
+      ]
+    },
+    {
+      "expected_doc": "12_ticket_data_retention.md",
+      "expected_doc_in_top3": true,
+      "question": "How long are request logs retained?",
+      "strategy": "sentence",
+      "hits": [
+        {
+          "chunk_id": "sentence:12_ticket_data_retention.md:0000",
+          "doc_id": "12_ticket_data_retention.md",
+          "source": "knowledge_base/12_ticket_data_retention.md",
+          "title": "Ticket data retention",
+          "cosine_similarity": 0.595885,
+          "text": "Ticket data retention\nRetain a ticket, its conversation, linked evidence, and feedback while it is active and for 90 calendar days after it enters Closed status; if it reopens, calculate the retention period from its next closure. Retain structured request logs for 30 calendar days from creation and mask phone numbers before request text enters a model or is written to a log."
+        },
+        {
+          "chunk_id": "sentence:12_ticket_data_retention.md:0001",
+          "doc_id": "12_ticket_data_retention.md",
+          "source": "knowledge_base/12_ticket_data_retention.md",
+          "title": "Ticket data retention",
+          "cosine_similarity": 0.413938,
+          "text": "Ticket data retention\nWhen a retention period ends, the human data owner deletes the corresponding records or irreversibly anonymizes them so no customer or ticket can be reconstructed. Any longer retention requires a documented human-approved exception containing a purpose and an expiry date, rather than an indefinite default."
+        },
+        {
+          "chunk_id": "sentence:11_outage_communication.md:0001",
+          "doc_id": "11_outage_communication.md",
+          "source": "knowledge_base/11_outage_communication.md",
+          "title": "Outage communication",
+          "cosine_similarity": 0.388339,
+          "text": "Outage communication\nProvide progress updates every 30 elapsed minutes until restoration is confirmed, including outside routine support hours. State only verified service impact, a confirmed start time when known, and the next update time; never invent a restoration estimate or expose personal customer details."
+        }
+      ]
+    },
+    {
+      "expected_doc": "06_business_hours_and_holidays.md",
+      "expected_doc_in_top3": true,
+      "question": "Is routine support available on Sunday?",
+      "strategy": "fixed",
+      "hits": [
+        {
+          "chunk_id": "fixed:06_business_hours_and_holidays.md:0000",
+          "doc_id": "06_business_hours_and_holidays.md",
+          "source": "knowledge_base/06_business_hours_and_holidays.md",
+          "title": "Business hours and holiday support",
+          "cosine_similarity": 0.624197,
+          "text": "Business hours and holiday support\nRoutine support operates Monday through Saturday from 09:00 to 18:00 Indian Standard Time, using the Asia/Kolkata time zone. Routine support is closed on Sundays and on the project holidays of 26 January, 15 August, and 2 October. P1 safety, security, and widespread-outage cases receive continuous coverage, including nights, Sundays, and holidays. P2 and P3 business-hour clocks pause outside routi"
+        },
+        {
+          "chunk_id": "fixed:06_business_hours_and_holidays.md:0001",
+          "doc_id": "06_business_hours_and_holidays.md",
+          "source": "knowledge_base/06_business_hours_and_holidays.md",
+          "title": "Business hours and holiday support",
+          "cosine_similarity": 0.436835,
+          "text": "Business hours and holiday support\nights, Sundays, and holidays. P2 and P3 business-hour clocks pause outside routine support hours and resume at the next opening; they do not reset when a new day begins. For a business-day deadline, exclude Sundays and the listed project holidays, count the next open date as day one, and use 18:00 Indian Standard Time as the deadline on the final counted date."
+        },
+        {
+          "chunk_id": "fixed:11_outage_communication.md:0001",
+          "doc_id": "11_outage_communication.md",
+          "source": "knowledge_base/11_outage_communication.md",
+          "title": "Outage communication",
+          "cosine_similarity": 0.368918,
+          "text": "Outage communication\n restoration is confirmed, including outside routine support hours. State only verified service impact, a confirmed start time when known, and the next update time; never invent a restoration estimate or expose personal customer details. Publish a restoration notice only after the Incident Lead confirms service recovery, and keep individual unresolved complaints available for their normal support "
+        }
+      ]
+    },
+    {
+      "expected_doc": "06_business_hours_and_holidays.md",
+      "expected_doc_in_top3": true,
+      "question": "Is routine support available on Sunday?",
+      "strategy": "sentence",
+      "hits": [
+        {
+          "chunk_id": "sentence:06_business_hours_and_holidays.md:0000",
+          "doc_id": "06_business_hours_and_holidays.md",
+          "source": "knowledge_base/06_business_hours_and_holidays.md",
+          "title": "Business hours and holiday support",
+          "cosine_similarity": 0.638851,
+          "text": "Business hours and holiday support\nRoutine support operates Monday through Saturday from 09:00 to 18:00 Indian Standard Time, using the Asia/Kolkata time zone. Routine support is closed on Sundays and on the project holidays of 26 January, 15 August, and 2 October."
+        },
+        {
+          "chunk_id": "sentence:06_business_hours_and_holidays.md:0001",
+          "doc_id": "06_business_hours_and_holidays.md",
+          "source": "knowledge_base/06_business_hours_and_holidays.md",
+          "title": "Business hours and holiday support",
+          "cosine_similarity": 0.505479,
+          "text": "Business hours and holiday support\nP1 safety, security, and widespread-outage cases receive continuous coverage, including nights, Sundays, and holidays. P2 and P3 business-hour clocks pause outside routine support hours and resume at the next opening; they do not reset when a new day begins."
+        },
+        {
+          "chunk_id": "sentence:11_outage_communication.md:0001",
+          "doc_id": "11_outage_communication.md",
+          "source": "knowledge_base/11_outage_communication.md",
+          "title": "Outage communication",
+          "cosine_similarity": 0.365428,
+          "text": "Outage communication\nProvide progress updates every 30 elapsed minutes until restoration is confirmed, including outside routine support hours. State only verified service impact, a confirmed start time when known, and the next update time; never invent a restoration estimate or expose personal customer details."
+        }
+      ]
+    }
+  ],
+  "scope": "Task 3 retrieval check only; generation and scored evaluation are pending"
+}

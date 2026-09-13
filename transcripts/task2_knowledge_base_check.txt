@@ -1,0 +1,21 @@
+Task 2 knowledge-base verification
+Executed: 2026-09-06
+Scope: document coverage, sentence counts, guide links, and archive integrity
+Retrieval quality and scored agent evaluation: not run; indexing is pending
+
+PASS | 01_ticket_priority.md | 5 sentences | guide link present
+PASS | 02_sla_by_severity.md | 5 sentences | guide link present
+PASS | 03_escalation_matrix.md | 5 sentences | guide link present
+PASS | 04_refunds_and_compensation.md | 5 sentences | guide link present
+PASS | 05_communication_channels.md | 5 sentences | guide link present
+PASS | 06_business_hours_and_holidays.md | 5 sentences | guide link present
+PASS | 07_repeat_complaints.md | 5 sentences | guide link present
+PASS | 08_service_credits.md | 5 sentences | guide link present
+PASS | 09_feedback_collection.md | 5 sentences | guide link present
+PASS | 10_vip_handling.md | 5 sentences | guide link present
+PASS | 11_outage_communication.md | 5 sentences | guide link present
+PASS | 12_ticket_data_retention.md | 5 sentences | guide link present
+
+PASS | 12 of 12 required topic documents present
+PASS | 60 policy sentences in total
+PASS | Fictional project scope declared in START-HERE.md

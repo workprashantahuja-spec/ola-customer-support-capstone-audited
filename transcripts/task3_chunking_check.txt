@@ -1,0 +1,12 @@
+Command: .venv/bin/python -m unittest discover -s tests -v
+Platform: Linux, Python 3.12.13
+
+test_fixed_short_empty_and_invalid_parameters (test_chunking.ChunkingTests.test_fixed_short_empty_and_invalid_parameters) ... ok
+test_fixed_windows_cover_all_characters_with_exact_overlap (test_chunking.ChunkingTests.test_fixed_windows_cover_all_characters_with_exact_overlap) ... ok
+test_parent_document_and_offsets_are_preserved (test_chunking.ChunkingTests.test_parent_document_and_offsets_are_preserved) ... ok
+test_sentences_remain_complete_and_preserve_the_final_sentence (test_chunking.ChunkingTests.test_sentences_remain_complete_and_preserve_the_final_sentence) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

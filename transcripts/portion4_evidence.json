@@ -1,0 +1,116 @@
+{
+  "portion": 4,
+  "rubric_tasks": [
+    7,
+    9
+  ],
+  "status": "PASS",
+  "runtime": {
+    "framework": "CrewAI",
+    "crew_class": "crewai.crew.Crew",
+    "kickoff_method_called": "Crew.kickoff()",
+    "kickoff_count": 2,
+    "llm_mode": "deterministic BaseLLM mock",
+    "api_keys_required": false,
+    "runtime_network_required": false,
+    "network_check": "Python socket connection and DNS calls blocked during both kickoffs"
+  },
+  "agents": [
+    {
+      "role": "Policy Retrieval Specialist",
+      "tool_access": [
+        "search_support_policies"
+      ]
+    },
+    {
+      "role": "Ticket Lookup Specialist",
+      "tool_access": [
+        "check_support_ticket_status"
+      ]
+    },
+    {
+      "role": "Support Response Composer",
+      "tool_access": []
+    }
+  ],
+  "tool_invocations": [
+    {
+      "tool": "search_support_policies",
+      "arguments": {
+        "question": "How quickly must a P2 ticket be acknowledged?"
+      },
+      "result": {
+        "question": "How quickly must a P2 ticket be acknowledged?",
+        "answer": "For a P1 Critical ticket, acknowledge the report within 15 elapsed minutes, provide progress updates every 30 elapsed minutes, and target restoration or a safe next step within 4 elapsed hours. For a P2 High ticket, acknowledge the report within 4 business hours and target resolution within 16 business hours.",
+        "grounded": true,
+        "fallback": false,
+        "strategy": "sentence",
+        "threshold": 0.4,
+        "top_similarity": 0.636514,
+        "sources": [
+          "knowledge_base/02_sla_by_severity.md"
+        ],
+        "retrieved_context": "SLA by severity\nFor a P1 Critical ticket, acknowledge the report within 15 elapsed minutes, provide progress updates every 30 elapsed minutes, and target restoration or a safe next step within 4 elapsed hours. For a P2 High ticket, acknowledge the report within 4 business hours and target resolution within 16 business hours.",
+        "model": "deterministic_extractive_mock_v1",
+        "cache_hit": false,
+        "cache_key": "how quickly must a p2 ticket be acknowledged?"
+      }
+    },
+    {
+      "tool": "check_support_ticket_status",
+      "arguments": {
+        "record_id": "SUP-0001"
+      },
+      "result": {
+        "record_id": "SUP-0001",
+        "status": "Escalated",
+        "resolution_time_hours": 48,
+        "days_since_created": 29,
+        "escalated": true,
+        "escalation_score": 0.9883,
+        "human_attention_recommended": true,
+        "score_formula": "0.65 \u00d7 escalation flag + 0.35 \u00d7 (days since created / 30)",
+        "score_interpretation": "This is a fabricated-data attention score, not evidence of an SLA breach, refund eligibility, or a completed human escalation."
+      }
+    }
+  ],
+  "validated_responses": [
+    {
+      "request": "How quickly must a P2 ticket be acknowledged?",
+      "validation": "SupportResponse PASS",
+      "response": {
+        "request_type": "policy",
+        "answer": "For a P1 Critical ticket, acknowledge the report within 15 elapsed minutes, provide progress updates every 30 elapsed minutes, and target restoration or a safe next step within 4 elapsed hours. For a P2 High ticket, acknowledge the report within 4 business hours and target resolution within 16 business hours.",
+        "grounded": true,
+        "fallback_used": false,
+        "sources": [
+          "knowledge_base/02_sla_by_severity.md"
+        ],
+        "ticket": null
+      }
+    },
+    {
+      "request": "SUP-0001",
+      "validation": "SupportResponse PASS",
+      "response": {
+        "request_type": "ticket",
+        "answer": "Ticket SUP-0001 is Escalated. Its recorded resolution-time value is 48 hours and its attention score is 0.9883. Human attention is recommended.",
+        "grounded": true,
+        "fallback_used": false,
+        "sources": [
+          "fabricated_support_tickets"
+        ],
+        "ticket": {
+          "record_id": "SUP-0001",
+          "status": "Escalated",
+          "resolution_time_hours": 48,
+          "days_since_created": 29,
+          "escalated": true,
+          "escalation_score": 0.9883,
+          "human_attention_recommended": true
+        }
+      }
+    }
+  ],
+  "invalid_schema_rejected": true
+}

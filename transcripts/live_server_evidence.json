@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "actual_server_started": true,
+  "http_policy_ticket_fallback_passed": true,
+  "websocket_memory_and_disconnect_passed": true,
+  "network_scope": "localhost only; API keys removed",
+  "platform": "linux"
+}
