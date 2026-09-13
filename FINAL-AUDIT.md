@@ -49,14 +49,14 @@ Separately, `verify_live_server.py` starts the actual `run_server.py` entry poin
 
 ## Submission rules
 
-- One public GitHub repository: `https://github.com/workprashantahuja-spec/ola-customer-support-capstone`. Public visibility was verified during this audit.
+- One public GitHub repository: `https://github.com/workprashantahuja-spec/ola-customer-support-capstone-audited`. Public visibility was verified during this audit.
 - README begins with the Ola Business Operations / Customer Support track, seeded design choices, mock operation, setup and limitations.
 - Repository deliverables are code/text; no uploaded images, PDFs, slides, audio, video, virtual environment or model weights are included. Model weights and the Chroma database are prepared locally by the setup commands.
 - Graded mock execution requires no API keys or paid account. Initial dependency/model preparation needs internet. Telemetry is disabled before CrewAI imports; offline verifiers block Python socket/DNS calls around demonstrations. This is not claimed as an OS-level network isolation proof.
-- AI-rule conflict: the original brief prohibits AI assistants, but the later authenticated Final Capstone LMS instructions explicitly allow them and require understanding code, implementation and data flow. README discloses AI assistance and follows those later instructions. A plagiarism/similarity score is not predictable or guaranteed by this audit.
+- AI-rule conflict: the original brief and the later authenticated Final Capstone LMS instructions differ on AI-tool use. The later LMS instructions explicitly allow AI tools and require the student to understand the code, implementation and data flow. A plagiarism/similarity score is not predictable or guaranteed by this audit.
 - Amount-range ambiguity: the generic README instruction mentions amount, but the Ola record schema contains no amount field. README explicitly states “not applicable” and documents resolution hours instead.
 - Governance-name ambiguity: the supplied brief explicitly names Application and Runtime, but does not specify the other two layer names. Organization and Model are documented project interpretations. This audit cannot certify agreement with an unseen course-specific taxonomy.
-- Final LMS action: Question 1 must select the Ola domain; Question 2 must contain this repository URL. The LMS page is `https://students.masaischool.com/assignments/82616?tab=assignmentDetails`. Its displayed deadline was 13 September, 20:29 Italy time / 23:59 IST. **This audit does not verify that the final LMS submission was completed or accepted.**
+- Final LMS action: Question 1 must select the exact `Support` domain; Question 2 must contain `https://github.com/workprashantahuja-spec/ola-customer-support-capstone-audited`. The LMS page is `https://students.masaischool.com/assignments/82616?tab=assignmentDetails`. Its displayed deadline was 13 September, 20:29 Italy time / 23:59 IST. **This audit does not verify that the final LMS submission was completed or accepted.**
 
 ## Practical limits
 
